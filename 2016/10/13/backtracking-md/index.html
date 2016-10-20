@@ -1,0 +1,615 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode,back tracking," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Index1234CombinationsCombination SumPermutationsPermutations II
+CombinationGiven two integers n and k, return all possible combinations of k numbers out of 1 … n.
+For example,If n = 4 and k = 2, a sol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="backtracking.md">
+<meta property="og:url" content="http://yoursite.com/2016/10/13/backtracking-md/index.html">
+<meta property="og:site_name" content="Wei Jiang">
+<meta property="og:description" content="Index1234CombinationsCombination SumPermutationsPermutations II
+CombinationGiven two integers n and k, return all possible combinations of k numbers out of 1 … n.
+For example,If n = 4 and k = 2, a sol">
+<meta property="og:updated_time" content="2016-10-20T01:37:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="backtracking.md">
+<meta name="twitter:description" content="Index1234CombinationsCombination SumPermutationsPermutations II
+CombinationGiven two integers n and k, return all possible combinations of k numbers out of 1 … n.
+For example,If n = 4 and k = 2, a sol">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/13/backtracking-md/"/>
+
+  <title> backtracking.md | Wei Jiang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wei Jiang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                backtracking.md
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T17:14:14-04:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/big-data/" itemprop="url" rel="index">
+                    <span itemprop="name">big_data</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Combinations</div><div class="line">Combination Sum</div><div class="line">Permutations</div><div class="line">Permutations II</div></pre></td></tr></table></figure>
+<h3 id="Combination"><a href="#Combination" class="headerlink" title="Combination"></a>Combination</h3><p>Given two integers n and k, return all possible combinations of k numbers out of 1 … n.</p>
+<p>For example,<br>If n = 4 and k = 2, a solution is:</p>
+<p>[<br>  [2,4],<br>  [3,4],<br>  [2,3],<br>  [1,2],<br>  [1,3],<br>  [1,4],<br>]</p>
+<p>利用back tracking枚举可能情况，边界条件为path.size() == k，满足条件就把path vector放到result vector中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; combine(int n, int k) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; result;</div><div class="line">        vector&lt;int&gt; path;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(n &lt;= 0)&#123;</div><div class="line">            <span class="built_in">return</span> result;</div><div class="line">        &#125;</div><div class="line">        trackback(result, path, n, k, 1);</div><div class="line">        </div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void trackback(vector&lt;vector&lt;int&gt;&gt;&amp; result, vector&lt;int&gt; path, int n, int k, int level)&#123;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(path.size() == k)&#123;</div><div class="line">            result.push_back(path);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(path.size() &gt; k)&#123;</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = level; i &lt;= n; i++)&#123;</div><div class="line">            path.push_back(i);</div><div class="line">            trackback(result, path, n, k, i + 1); //此处为i + 1，因为不涉及到返回处理，可以不用判定是否访问过，设置为i + 1即可</div><div class="line">            path.pop_back();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="Combination-Sum"><a href="#Combination-Sum" class="headerlink" title="Combination Sum"></a>Combination Sum</h3><p>边界条件为 target == 0，每次路径更新target -= nums[i]，<br>Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p>
+<p>The same repeated number may be chosen from C unlimited number of times.</p>
+<p>Note:<br>All numbers (including target) will be positive integers.<br>The solution set must not contain duplicate combinations.<br>For example, given candidate set [2, 3, 6, 7] and target 7,<br>A solution set is:<br>[<br>  [7],<br>  [2, 2, 3]<br>]<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; combinationSum(vector&lt;int&gt;&amp; candidates, int target) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; ret;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(candidates.size() == 0 || target &lt; 0)&#123;</div><div class="line">            <span class="built_in">return</span> ret;</div><div class="line">        &#125;</div><div class="line">        vector&lt;int&gt; curr;</div><div class="line">        </div><div class="line">        backtracking(ret, curr, candidates, target, 0);</div><div class="line">        <span class="built_in">return</span> ret;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void backtracking(vector&lt;vector&lt;int&gt;&gt;&amp; ret, vector&lt;int&gt; curr, vector&lt;int&gt; candidates, int target, int level)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(target == 0)&#123;</div><div class="line">            ret.push_back(curr);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(target &lt; 0)&#123;</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = level; i &lt; candidates.size(); ++i)&#123;</div><div class="line">            target -= candidates[i];</div><div class="line">            curr.push_back(candidates[i]);</div><div class="line">            backtracking(ret, curr, candidates, target, i); //此处为i，只枚举i后面的数，防止有重复元素；</div><div class="line">            curr.pop_back();</div><div class="line">            target += candidates[i]; //释放targe值</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="Permutations"><a href="#Permutations" class="headerlink" title="Permutations"></a>Permutations</h3><p>Given a collection of distinct numbers, return all possible permutations.</p>
+<p>For example,<br>[1,2,3] have the following permutations:<br>[<br>  [1,2,3],<br>  [1,3,2],<br>  [2,1,3],<br>  [2,3,1],<br>  [3,1,2],<br>  [3,2,1]<br>]</p>
+<p>可以用同样的模版，但是permutation一定要有判定是否访问过了.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; permute(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;int&gt; path;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; result;</div><div class="line">        bool visit[nums.size()] = &#123;<span class="literal">false</span>&#125;;</div><div class="line">        </div><div class="line">        dfs(result, path, nums, visit);</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; result, vector&lt;int&gt; path, vector&lt;int&gt; nums, bool visit[])</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(path.size() == nums.size())&#123;</div><div class="line">            result.push_back(path);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = 0; i &lt; nums.size(); i++)&#123;</div><div class="line">            <span class="keyword">if</span>(visit[i] == <span class="literal">false</span>)&#123;</div><div class="line">                visit[i] = <span class="literal">true</span>;</div><div class="line">                path.push_back(nums[i]);</div><div class="line">                dfs(result, path, nums, visit);  //循环，但是访问过的元素不放入数组中</div><div class="line">                visit[i] = <span class="literal">false</span>; // 释放判定</div><div class="line">                path.pop_back();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="Permutations-II"><a href="#Permutations-II" class="headerlink" title="Permutations II"></a>Permutations II</h3><p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>
+<p>For example,<br>[1,1,2] have the following unique permutations:<br>[<br>  [1,1,2],<br>  [1,2,1],<br>  [2,1,1]<br>]<br>于上一题一样，除了是否访问过的判定，还要加上是否重复的判定 visit[i - 1] == false &amp;&amp; i != 0 &amp;&amp; nums[i] == nums[i - 1]<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    </div><div class="line">    vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; num) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; result;</div><div class="line">        <span class="keyword">if</span>(num.size() == 0)&#123;</div><div class="line">            <span class="built_in">return</span> result;</div><div class="line">        &#125;</div><div class="line">        vector&lt;int&gt; path;</div><div class="line">        vector&lt;bool&gt; visited(num.size(), <span class="literal">false</span>);</div><div class="line">        </div><div class="line">        sort(num.begin(), num.end());</div><div class="line">        dfs(result, path, num, visited);</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; result, vector&lt;int&gt; path, vector&lt;int&gt; num, vector&lt;bool&gt; visited)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(path.size() == num.size())&#123;</div><div class="line">            result.push_back(path);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = 0; i &lt; num.size(); i++)&#123;</div><div class="line">            <span class="keyword">if</span>(visited[i] == <span class="literal">false</span>)&#123;</div><div class="line">                <span class="keyword">if</span>(i != 0 &amp;&amp; visited[i - 1] == <span class="literal">false</span> &amp;&amp; num[i] == num[i - 1])&#123; //判定一定要考虑[i - 1]项，i != 0 在前</div><div class="line">                    <span class="built_in">continue</span>;</div><div class="line">                &#125;</div><div class="line">                visited[i] = <span class="literal">true</span>;</div><div class="line">                path.push_back(num[i]);</div><div class="line">                dfs(result, path, num, visited);</div><div class="line">                visited[i] = <span class="literal">false</span>;</div><div class="line">                path.pop_back();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+            <a href="/tags/back-tracking/" rel="tag">#back tracking</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/11/dynamic-programming例题/" rel="next" title="dynamic programming例题">
+                <i class="fa fa-chevron-left"></i> dynamic programming例题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/19/big-data环境配置/" rel="prev" title="big_data环境配置">
+                big_data环境配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Wei" />
+          <p class="site-author-name" itemprop="name">Wei</p>
+          <p class="site-description motion-element" itemprop="description">update some solutions of Leetcode</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Kategorien</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Index"><span class="nav-number">1.</span> <span class="nav-text">Index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combination"><span class="nav-number">2.</span> <span class="nav-text">Combination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combination-Sum"><span class="nav-number">3.</span> <span class="nav-text">Combination Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutations"><span class="nav-number">4.</span> <span class="nav-text">Permutations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutations-II"><span class="nav-number">5.</span> <span class="nav-text">Permutations II</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wei</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
