@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
-2$ mkdir bigdata-class2                             # 创建一个目录$ cd bigdata-class2  # 进入 文件夹$ sudo docker">
+<meta name="description" content="hadoop fs -ls  /列出hdfs文件系统根目录下的目录和文件hadoop fs -ls -R /列出hdfs文件系统所有的目录和文件
+1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
+2$ mkdir bigdata-class2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="big_data环境配置">
 <meta property="og:url" content="http://yoursite.com/2016/10/19/big-data环境配置/index.html">
 <meta property="og:site_name" content="Wei Jiang">
-<meta property="og:description" content="1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
-2$ mkdir bigdata-class2                             # 创建一个目录$ cd bigdata-class2  # 进入 文件夹$ sudo docker">
-<meta property="og:updated_time" content="2016-10-20T02:12:26.000Z">
+<meta property="og:description" content="hadoop fs -ls  /列出hdfs文件系统根目录下的目录和文件hadoop fs -ls -R /列出hdfs文件系统所有的目录和文件
+1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
+2$ mkdir bigdata-class2">
+<meta property="og:updated_time" content="2016-10-21T21:44:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="big_data环境配置">
-<meta name="twitter:description" content="1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
-2$ mkdir bigdata-class2                             # 创建一个目录$ cd bigdata-class2  # 进入 文件夹$ sudo docker">
+<meta name="twitter:description" content="hadoop fs -ls  /列出hdfs文件系统根目录下的目录和文件hadoop fs -ls -R /列出hdfs文件系统所有的目录和文件
+1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
+2$ mkdir bigdata-class2">
 
 
 
@@ -308,8 +311,10 @@
       
 
       
-        <h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>test if docker is alreay setup, $sudo docker info<br>配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）</p>
-<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>$ <strong>mkdir bigdata-class2</strong>                             # 创建一个目录<br>$ <strong>cd bigdata-class2</strong>  # 进入 文件夹<br>$ sudo docker pull joway/hadoop-cluster# 镜像文件 pull docker image ，接下来需要输入密码，需要管理员权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">这句话的意思是 docker pull</div><div class="line">docker pull [<span class="_">-a</span> <span class="string">"o"</span>&gt;] [user/ <span class="string">"o"</span>&gt;]name[:tag <span class="string">"o"</span>&gt;]</div><div class="line">docker pull laozhu/telescope:latest</div><div class="line">从 Docker Hub 中拉取或者更新指定镜像。</div><div class="line"><span class="_">-a</span> 拉取所有 tagged 镜像 。</div></pre></td></tr></table></figure></p>
+        <p>hadoop fs -ls  /<br>列出hdfs文件系统根目录下的目录和文件<br>hadoop fs -ls -R /<br>列出hdfs文件系统所有的目录和文件</p>
+<h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>test if docker is alreay setup, $sudo docker info<br>配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）</p>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>$ <strong>mkdir bigdata-class2</strong>                             # 创建一个目录<br>$ <strong>cd bigdata-class2</strong>  # 进入 文件夹<br>$ sudo docker pull joway/hadoop-cluster# 镜像文件 pull docker image ，接下来需要输入密码，需要管理员权限</p>
+<p>这句话的意思是 docker pull<br>docker pull [-a “o”&gt;] [user/ “o”&gt;]name[:tag “o”&gt;]<br>docker pull laozhu/telescope:latest<br>从 Docker Hub 中拉取或者更新指定镜像。<br>-a 拉取所有 tagged 镜像 。</p>
 <h1 id="There-is-no-sudo-command-in-Windows-The-nearest-equivalent-is-“run-as-administrator-”-http-stackoverflow-com-questions-9652720-how-to-run-sudo-command-in-windows"><a href="#There-is-no-sudo-command-in-Windows-The-nearest-equivalent-is-“run-as-administrator-”-http-stackoverflow-com-questions-9652720-how-to-run-sudo-command-in-windows" class="headerlink" title="There is no sudo command in Windows. The nearest equivalent is “run as # # administrator.” http://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows ."></a>There is no sudo command in Windows. The nearest equivalent is “run as # # administrator.” <a href="http://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows" target="_blank" rel="external">http://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows</a> .</h1><p>$ git clone <a href="https://github.com/joway/hadoop-cluster-docker" target="_blank" rel="external">https://github.com/joway/hadoop-cluster-docker</a>  # 把 github repository 复制到本地<br>$ ls  # 检测 本地有一个hadoop cluster docker 的文件夹</p>
 <p>$ sudo docker network create –driver=bridge hadoop  # 创建 hadoop network<br>$ cd hadoop-cluster-docker  #  进入到 hadoop-cluster-docker  文件夹<br>$ sudo ./start-container.sh # 运行， 如果你看到下面的类似的输出就恭喜你运行成功， 表示的意思是我们启动了1个name node叫做master, 2个data node 叫做 hadoop-slave，<strong>这段代码在每次使用Docker的时候必须运行</strong></p>
 
