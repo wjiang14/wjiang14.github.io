@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可">
+<meta name="description" content="#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));
+#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可
+#BST的inorder遍历相当于生序排列，要熟悉用栈来实现
+#删除bst节点，分三种情况: 1. 如果删除节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tips">
 <meta property="og:url" content="http://yoursite.com/2016/10/23/tips/index.html">
 <meta property="og:site_name" content="Wei Jiang">
-<meta property="og:description" content="2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可">
-<meta property="og:updated_time" content="2016-10-28T21:43:41.000Z">
+<meta property="og:description" content="#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));
+#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可
+#BST的inorder遍历相当于生序排列，要熟悉用栈来实现
+#删除bst节点，分三种情况: 1. 如果删除节">
+<meta property="og:updated_time" content="2016-11-04T02:46:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tips">
-<meta name="twitter:description" content="2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可">
+<meta name="twitter:description" content="#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));
+#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可
+#BST的inorder遍历相当于生序排列，要熟悉用栈来实现
+#删除bst节点，分三种情况: 1. 如果删除节">
 
 
 
@@ -286,7 +295,13 @@
       
 
       
-        <p>2d vector resize 可以用 dp.resize(matrix.size() + 1, vector<int>(matrix.size() + 1, 0));<br>统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可</int></p>
+        <p>#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector<int>(matrix.size() + 1, 0));</int></p>
+<p>#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可</p>
+<p>#BST的inorder遍历相当于生序排列，要熟悉用栈来实现</p>
+<p>#删除bst节点，分三种情况: 1. 如果删除节点为叶子节点，直接删除，指向null。2. 如果其结点只包含左子树，或者右子树的话，此时直接删除该结点，并将其左子树，或者右子树设置为其父结点的左子树或者右子树即可，此操作不会破坏树结构。</p>
+<ol>
+<li>当结点的左右子树都不空的时候，一般的删除策略是用其右子树的最小数据（容易找到）代替要删除的结点数据并递归删除该结点（此时为null），因为右子树的最小结点不可能有左孩子，所以第二次删除较为容易。z的左子树和右子树均不空。找到z的后继y，因为y一定没有左子树，所以可以删除y并让y的父亲节点成为y的右子树的父亲节点，并用y的值代替z的值.如图：</li>
+</ol>
 
       
     </div>
