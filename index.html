@@ -248,6 +248,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/06/dynamic-programming-note-jiuzhang/" itemprop="url">
+                  dynamic programming note_jiuzhang
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-06T21:44:48-05:00" content="2016-11-06">
+              2016-11-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>什么情况下使用动态规划</p>
+<p>满足下面三个条件之一，则极有可能使用动态规划 90% - 95%：</p>
+<p>求最大值，最小值<br>判断是否可行<br>统计方案个数<br>极不可能使用动态规划的情况：</p>
+<p>求出所有具体的方案而非方案的个数<br>输入数据是一个集合而不是序列<br>暴力的算法已经是多项式级别<br>动态规划的 4 点要素</p>
+<p>状态 State<br>灵感，创造⼒，存储小规模问题的结果<br>最优解 / Maximum / Minimum<br>Yes / No<br>Count(*)<br>方程 Function<br>状态之间的联系，怎么通过⼩的状态，来求得⼤的状态<br>初始化 Intialization<br>最极限的小状态是什么，起点<br>答案 Answer<br>最⼤的那个状态是什么，终点<br>总结</p>
+<p>什么情况下可能使用/不用动态规划?</p>
+<p>最大值最小值/是否可行/方案总数<br>求所有方案/集合而不是序列/指数级到多项式<br>三种面试常见的动态规划类别及状态特点</p>
+<p>坐标,单序列,双序列<br>两招独孤九剑</p>
+<p>二维DP需要初始化第0行和第0列<br>n个字符的字符串要开n+1个位置的数组<br>坐标型</p>
+<p>state:<br>f[x] 表示我从起点走到坐标x……<br>f[x][y] 表示我从起点走到坐标x,y……<br>function: 研究走到x,y这个点之前的一步<br>initialize: 起点<br>answer: 终点<br>单序列</p>
+<p>以字符串居多</p>
+<p>state: f[i]表示前i个位置/数字/字符,第i个…<br>function: f[i] = f[j] … j 是i之前的一个位置<br>initialize: f[0]..<br>answer: f[n]..<br>一般answer是f(n)而不是f(n-1), 因为对于n个字符,包含前0个字符(空串),前1个字符……前n个字符。<br>双序列</p>
+<p>一般给两个字符串</p>
+<p>state: f[i][j]代表了第一个sequence的前i个数字/字符,配上第二个sequence的前j个…<br>function: f[i][j] = 研究第i个和第j个的匹配关系<br>initialize: f[i][0] 和 f[0][i]<br>answer: f[n][m]<br>n = s1.length()<br>m = s2.length()<br>划分型</p>
+<p>题目：给一个序列，求一次划分区间，求区间中的最大值</p>
+<p>state: f[i] 表⽰示前 个元素的最⼤大值<br>function: f[i] = 前 i 个元素里⾯选一个区间的最⼤值<br>initialize: f[0]..<br>answer: f[n-1]..<br>优化</p>
+<p>state:<br>gobal[i] 表示前 i 个元素的最大值<br>local[i] 表⽰示包含第 i 个元素前 i 个元素的最大值<br>function:<br>global[i] = 通过 local[i] 更新<br>local[i] = 通过原序列或者 global[i] 更新<br>initialize: global[0].. Local[i]<br>answer: global[n-1]..<br>背包型</p>
+<p>特点：</p>
+<p>用值作为DP维度<br>DP过程就是填写矩阵<br>可以滚动数组优化<br>Backpack</p>
+<p>State:<br>f[i][S] “前i”个物品，取出一些能否组成和为S<br>Function:<br>f[i][S] = f[i-1][S - a[i]] or f[i-1][S]<br>Intialize:<br>f[i][0] = true; f[0][1..target] = false<br>Answer:<br>检查所有的f[n][j]<br>时间复杂度 O(n*S) ， 滚动数组优化</p>
+<p>区间型</p>
+<p>特点：</p>
+<p>求一段区间的解max/min/count<br>转移方程通过区间更新<br>从大到小的更新<br>这种题目共性就是区间最后求[0,n-1] 这样一个区间<br>逆向思维分析 从大到小就能迎刃而解<br>逆向 =》 分治类似</p>
+<p>博弈型</p>
+<p>博弈有先后手</p>
+<p>State:<br>定义一个人的状态<br>Function:<br>考虑两个人的状态做状态更新<br>Initialize:<br>Answer:<br>先思考最小状态<br>然后思考大的状态-&gt; 往小的递推，那么非常适合记忆化搜索<br>记忆化搜索</p>
+<p>本质上：动态规划<br>动态规划就是解决了重复计算的搜索<br>大部分DP都可以用记忆化搜索做</p>
+<p>动态规划的实现方式：</p>
+<p>循环（从小到大递推）<br>记忆化搜索(从大到小搜索)<br>画搜索树<br>万金油<br>什么时候用记忆化搜索？</p>
+<p>状态转移特别麻烦，不是顺序性。<br>初始化状态不是很容易找到<br>题目类型</p>
+<p>博弈类问题<br>区间类问题<br>适合解决题目<br>状态特别复杂<br>初始化不好初始化。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/23/tips/" itemprop="url">
                   tips
                 </a>
@@ -1269,7 +1393,7 @@ public int binarySearch(int[] A, int target) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1286,7 +1410,7 @@ public int binarySearch(int[] A, int target) {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
