@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hadoop environment setup," />
+  <meta name="keywords" content="linux server," />
 
 
 
@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="hadoop fs -ls  /列出hdfs文件系统根目录下的目录和文件hadoop fs -ls -R /列出hdfs文件系统所有的目录和文件
-1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
-2$ mkdir bigdata-class2">
+<meta name="description" content="＃Linux server配置经验因为要部署webapp到服务器，准备用自己的linux验证一下再上传到aws上，写这篇文章记录一下。首先需要安装openssh-server，系统是ubuntu，至于是不是服务器版本或者桌面版都无所谓1$ sudo apt-get install openssh-server
+一般来说安装好之后服务器可以连接，为了验证下可以这样：1$ ps -e | grep s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="big_data环境配置">
-<meta property="og:url" content="http://yoursite.com/2016/10/19/big-data环境配置/index.html">
+<meta property="og:title" content="服务器配置经验">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/服务器配置经验/index.html">
 <meta property="og:site_name" content="Wei Jiang">
-<meta property="og:description" content="hadoop fs -ls  /列出hdfs文件系统根目录下的目录和文件hadoop fs -ls -R /列出hdfs文件系统所有的目录和文件
-1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
-2$ mkdir bigdata-class2">
-<meta property="og:updated_time" content="2016-10-21T21:44:39.000Z">
+<meta property="og:description" content="＃Linux server配置经验因为要部署webapp到服务器，准备用自己的linux验证一下再上传到aws上，写这篇文章记录一下。首先需要安装openssh-server，系统是ubuntu，至于是不是服务器版本或者桌面版都无所谓1$ sudo apt-get install openssh-server
+一般来说安装好之后服务器可以连接，为了验证下可以这样：1$ ps -e | grep s">
+<meta property="og:updated_time" content="2016-12-13T20:42:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="big_data环境配置">
-<meta name="twitter:description" content="hadoop fs -ls  /列出hdfs文件系统根目录下的目录和文件hadoop fs -ls -R /列出hdfs文件系统所有的目录和文件
-1test if docker is alreay setup, $sudo docker info配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）
-2$ mkdir bigdata-class2">
+<meta name="twitter:title" content="服务器配置经验">
+<meta name="twitter:description" content="＃Linux server配置经验因为要部署webapp到服务器，准备用自己的linux验证一下再上传到aws上，写这篇文章记录一下。首先需要安装openssh-server，系统是ubuntu，至于是不是服务器版本或者桌面版都无所谓1$ sudo apt-get install openssh-server
+一般来说安装好之后服务器可以连接，为了验证下可以这样：1$ ps -e | grep s">
 
 
 
@@ -120,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/19/big-data环境配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/13/服务器配置经验/"/>
 
-  <title> big_data环境配置 | Wei Jiang </title>
+  <title> 服务器配置经验 | Wei Jiang </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +249,7 @@
             
             
               
-                big_data环境配置
+                服务器配置经验
               
             
           </h1>
@@ -264,30 +261,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-19T21:25:20-04:00" content="2016-10-19">
-              2016-10-19
+            <time itemprop="dateCreated" datetime="2016-12-13T15:35:05-05:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/big-data/" itemprop="url" rel="index">
-                    <span itemprop="name">big_data</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -311,12 +289,12 @@
       
 
       
-        <p>hadoop fs -ls  /<br>列出hdfs文件系统根目录下的目录和文件<br>hadoop fs -ls -R /<br>列出hdfs文件系统所有的目录和文件</p>
-<h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>test if docker is alreay setup, $sudo docker info<br>配置一个hadoop环境，该环境中有一namenode（主机），两个datanode（子机）</p>
-<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>$ <strong>mkdir bigdata-class2</strong>                             # 创建一个目录<br>$ <strong>cd bigdata-class2</strong>  # 进入 文件夹<br>$ sudo docker pull joway/hadoop-cluster# 镜像文件 pull docker image ，接下来需要输入密码，需要管理员权限</p>
-<p>这句话的意思是 docker pull<br>docker pull [-a “o”&gt;] [user/ “o”&gt;]name[:tag “o”&gt;]<br>docker pull laozhu/telescope:latest<br>从 Docker Hub 中拉取或者更新指定镜像。<br>-a 拉取所有 tagged 镜像 。</p>
-<h1 id="There-is-no-sudo-command-in-Windows-The-nearest-equivalent-is-“run-as-administrator-”-http-stackoverflow-com-questions-9652720-how-to-run-sudo-command-in-windows"><a href="#There-is-no-sudo-command-in-Windows-The-nearest-equivalent-is-“run-as-administrator-”-http-stackoverflow-com-questions-9652720-how-to-run-sudo-command-in-windows" class="headerlink" title="There is no sudo command in Windows. The nearest equivalent is “run as # # administrator.” http://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows ."></a>There is no sudo command in Windows. The nearest equivalent is “run as # # administrator.” <a href="http://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows" target="_blank" rel="external">http://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows</a> .</h1><p>$ git clone <a href="https://github.com/joway/hadoop-cluster-docker" target="_blank" rel="external">https://github.com/joway/hadoop-cluster-docker</a>  # 把 github repository 复制到本地<br>$ ls  # 检测 本地有一个hadoop cluster docker 的文件夹</p>
-<p>$ sudo docker network create –driver=bridge hadoop  # 创建 hadoop network<br>$ cd hadoop-cluster-docker  #  进入到 hadoop-cluster-docker  文件夹<br>$ sudo ./start-container.sh # 运行， 如果你看到下面的类似的输出就恭喜你运行成功， 表示的意思是我们启动了1个name node叫做master, 2个data node 叫做 hadoop-slave，<strong>这段代码在每次使用Docker的时候必须运行</strong></p>
+        <p>＃Linux server配置经验<br>因为要部署webapp到服务器，准备用自己的linux验证一下再上传到aws上，写这篇文章记录一下。<br>首先需要安装openssh-server，系统是ubuntu，至于是不是服务器版本或者桌面版都无所谓<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install openssh-server</div></pre></td></tr></table></figure></p>
+<p>一般来说安装好之后服务器可以连接，为了验证下可以这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ps <span class="_">-e</span> | grep ssh</div></pre></td></tr></table></figure></p>
+<p>如果输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> 8367 ?        00:00:00 sshd</div><div class="line">16277 ?        00:00:00 ssh-agent</div></pre></td></tr></table></figure></p>
+<p>ssh-agent表示ssh-client启动，sshd表示ssh-server启动了。<br>ssh服务默认的端口是22，可以更改端口，使用如下命令打开ssh配置文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gedit /etc/ssh/sshd_config</div></pre></td></tr></table></figure></p>
+<p>修改端口号（Port）后，重启ssh服务即可生效，命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo /etc/init.d/ssh restart</div></pre></td></tr></table></figure></p>
+<p>ssh服务启动后，即可登陆，登陆命令格式为：ssh 帐号@IP地址<br>不知道ip就ifconfig查看一下<br>比如我的是 ssh wei@192.168.1.6<br>输入用户名密码就可以把程序传上去喽！</p>
 
       
     </div>
@@ -339,7 +317,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hadoop-environment-setup/" rel="tag">#hadoop environment setup</a>
+            <a href="/tags/linux-server/" rel="tag">#linux server</a>
           
         </div>
       
@@ -348,17 +326,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/13/backtracking-md/" rel="next" title="backtracking.md">
-                <i class="fa fa-chevron-left"></i> backtracking.md
+              <a href="/2016/11/06/dynamic-programming-note-jiuzhang/" rel="next" title="dynamic programming note_jiuzhang">
+                <i class="fa fa-chevron-left"></i> dynamic programming note_jiuzhang
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/20/刷题备注/" rel="prev" title="刷题备注">
-                刷题备注 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,7 +446,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-number">2.</span> <span class="nav-text">2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#There-is-no-sudo-command-in-Windows-The-nearest-equivalent-is-“run-as-administrator-”-http-stackoverflow-com-questions-9652720-how-to-run-sudo-command-in-windows"><span class="nav-number"></span> <span class="nav-text">There is no sudo command in Windows. The nearest equivalent is “run as # # administrator.” http://stackoverflow.com/questions/9652720/how-to-run-sudo-command-in-windows .</span></a></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
