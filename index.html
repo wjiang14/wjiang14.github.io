@@ -248,8 +248,113 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/18/C-中的comparator/" itemprop="url">
+                  C++中的comparator
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-18T14:43:25-05:00" content="2016-12-18">
+              2016-12-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>自定义了对象，如何按照自定对象中某一或多个元素对其进行排序呢？以下分别从C++和Java对其进行实现。</p>
+<p>一：C++<br>/<em><br>实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中，然后利用algorithm库函数中的sort对其进行排序，需要重写排序函数以函数名<br>作为函数指针作为sort的第三个参数
+</em>/</p>
+<p>#include <iostream></iostream></p>
+<p>#include <string></string></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector><br>using namespace std;</vector></p>
+<p>struct students{<br>    int age;<br>    string name;<br>};</p>
+<p>void addStudents(vector<students> &amp;vec, int age, string name){<br>    students stu;<br>    stu.age = age;<br>    stu.name = name;<br>    vec.push_back(stu);</students></p>
+<p>}</p>
+<p>// 按照年龄进行排序 升序<br>bool sortByAge(const students &amp;s1, const students &amp;s2){<br>    return s1.age &lt; s2.age;<br>}</p>
+<p>// 先按照年龄进行排序 年纪一样 按照姓名排序<br>bool sortByAll(const students &amp;s1, const students &amp;s2){<br>    if(s1.age &lt; s2.age) return true;<br>    else if(s1.age &gt; s2.age) return false;<br>    else return s1.name &lt; s2.name;<br>}<br>int main(){<br>    vector<students> vec;<br>    addStudents(vec, 20, “zhangming”);<br>    addStudents(vec, 20, “xiaoming”);<br>    addStudents(vec, 20, “xiaoming2”);<br>    addStudents(vec, 23, “xiaohong”);<br>    addStudents(vec, 22, “xiaofei”);<br>    addStudents(vec, 27, “xiaogang”);<br>    cout &lt;&lt; “排序前:” &lt;&lt; endl;<br>    for(vector<students>::iterator iter = vec.begin(); iter != vec.end(); ++iter){<br>        cout &lt;&lt; (<em>iter).age &lt;&lt; “ “ &lt;&lt; (</em>iter).name &lt;&lt; endl;<br>    }<br>    sort(vec.begin(), vec.end(), sortByAll);<br>    cout &lt;&lt; “排序后:” &lt;&lt; endl;<br>    for(vector<students>::iterator iter = vec.begin(); iter != vec.end(); ++iter){<br>        cout &lt;&lt; (<em>iter).age &lt;&lt; “ “ &lt;&lt; (</em>iter).name &lt;&lt; endl;<br>    }<br>}</students></students></students></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/13/服务器配置经验/" itemprop="url">
-                  服务器配置经验
+                  服务器配置经验.md
                 </a>
               
             
@@ -267,6 +372,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -1349,111 +1473,13 @@ public int binarySearch(int[] A, int target) {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/06/hello-world/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-06T22:00:13-04:00" content="2016-10-06">
-              2016-10-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Wei’s-first-blog-on-github"><a href="#Wei’s-first-blog-on-github" class="headerlink" title="Wei’s first blog on github"></a>Wei’s first blog on github</h1><h2 id="To-record-the-summary-on-Leetcode"><a href="#To-record-the-summary-on-Leetcode" class="headerlink" title="To record the summary on Leetcode"></a>To record the summary on Leetcode</h2><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1492,7 +1518,7 @@ public int binarySearch(int[] A, int target) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1500,7 +1526,7 @@ public int binarySearch(int[] A, int target) {
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

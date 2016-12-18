@@ -84,25 +84,15 @@
 
 
 
-<meta name="description" content="#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));
-#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可
-#BST的inorder遍历相当于生序排列，要熟悉用栈来实现
-#删除bst节点，分三种情况: 1. 如果删除节">
-<meta property="og:type" content="article">
-<meta property="og:title" content="tips">
-<meta property="og:url" content="http://yoursite.com/2016/10/23/tips/index.html">
+<meta name="description" content="update some solutions of Leetcode">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wei Jiang">
+<meta property="og:url" content="http://yoursite.com/categories/Linux/index.html">
 <meta property="og:site_name" content="Wei Jiang">
-<meta property="og:description" content="#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));
-#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可
-#BST的inorder遍历相当于生序排列，要熟悉用栈来实现
-#删除bst节点，分三种情况: 1. 如果删除节">
-<meta property="og:updated_time" content="2016-11-04T02:46:10.000Z">
+<meta property="og:description" content="update some solutions of Leetcode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tips">
-<meta name="twitter:description" content="#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector(matrix.size() + 1, 0));
-#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可
-#BST的inorder遍历相当于生序排列，要熟悉用栈来实现
-#删除bst节点，分三种情况: 1. 如果删除节">
+<meta name="twitter:title" content="Wei Jiang">
+<meta name="twitter:description" content="update some solutions of Leetcode">
 
 
 
@@ -123,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/23/tips/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/Linux/"/>
 
-  <title> tips | Wei Jiang </title>
+  <title> 分类: Linux | Wei Jiang </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +136,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,126 +224,47 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Linux
+        <small>分类</small>
+      </h2>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/12/13/服务器配置经验/" itemprop="url">
               
-                tips
+                <span itemprop="name">服务器配置经验.md</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-23T18:09:19-04:00" content="2016-10-23">
-              2016-10-23
-            </time>
-          </span>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-12-13T15:35:05-05:00"
+              content="2016-12-13" >
+          12-13
+        </time>
+      </div>
 
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>#2d vector resize 可以用 dp.resize(matrix.size() + 1, vector<int>(matrix.size() + 1, 0));</int></p>
-<p>#统计是否包含某个字符(字母)可以统计字母出现的次数，比如字母就设定一个26元素的数组数组，统计字符在字母表中出现的字数即可</p>
-<p>#BST的inorder遍历相当于生序排列，要熟悉用栈来实现</p>
-<p>#删除bst节点，分三种情况: 1. 如果删除节点为叶子节点，直接删除，指向null。2. 如果其结点只包含左子树，或者右子树的话，此时直接删除该结点，并将其左子树，或者右子树设置为其父结点的左子树或者右子树即可，此操作不会破坏树结构。</p>
-<ol>
-<li>当结点的左右子树都不空的时候，一般的删除策略是用其右子树的最小数据（容易找到）代替要删除的结点数据并递归删除该结点（此时为null），因为右子树的最小结点不可能有左孩子，所以第二次删除较为容易。z的左子树和右子树均不空。找到z的后继y，因为y一定没有左子树，所以可以删除y并让y的父亲节点成为y的右子树的父亲节点，并用y的值代替z的值.如图：</li>
-</ol>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/10/20/刷题备注/" rel="next" title="刷题备注">
-                <i class="fa fa-chevron-left"></i> 刷题备注
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/06/dynamic-programming-note-jiuzhang/" rel="prev" title="dynamic programming note_jiuzhang">
-                dynamic programming note_jiuzhang <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+
 
 
           </div>
@@ -361,10 +272,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -384,17 +291,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -444,17 +342,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -551,10 +438,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
