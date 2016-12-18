@@ -85,33 +85,18 @@
 
 
 <meta name="description" content="自定义了对象，如何按照自定对象中某一或多个元素对其进行排序呢？以下分别从C++和Java对其进行实现。
-一：C++/实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中，然后利用algorithm库函数中的sort对其进行排序，需要重写排序函数以函数名作为函数指针作为sort的第三个参数
-/
-#include 
-#include 
-#include 
-#include">
+一：C++12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455/*实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++中的comparator">
 <meta property="og:url" content="http://yoursite.com/2016/12/18/C-中的comparator/index.html">
 <meta property="og:site_name" content="Wei Jiang">
 <meta property="og:description" content="自定义了对象，如何按照自定对象中某一或多个元素对其进行排序呢？以下分别从C++和Java对其进行实现。
-一：C++/实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中，然后利用algorithm库函数中的sort对其进行排序，需要重写排序函数以函数名作为函数指针作为sort的第三个参数
-/
-#include 
-#include 
-#include 
-#include">
-<meta property="og:updated_time" content="2016-12-18T19:44:17.000Z">
+一：C++12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455/*实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中">
+<meta property="og:updated_time" content="2016-12-18T19:45:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++中的comparator">
 <meta name="twitter:description" content="自定义了对象，如何按照自定对象中某一或多个元素对其进行排序呢？以下分别从C++和Java对其进行实现。
-一：C++/实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中，然后利用algorithm库函数中的sort对其进行排序，需要重写排序函数以函数名作为函数指针作为sort的第三个参数
-/
-#include 
-#include 
-#include 
-#include">
+一：C++12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455/*实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中">
 
 
 
@@ -305,17 +290,7 @@
 
       
         <p>自定义了对象，如何按照自定对象中某一或多个元素对其进行排序呢？以下分别从C++和Java对其进行实现。</p>
-<p>一：C++<br>/<em><br>实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中，然后利用algorithm库函数中的sort对其进行排序，需要重写排序函数以函数名<br>作为函数指针作为sort的第三个参数
-</em>/</p>
-<p>#include <iostream></iostream></p>
-<p>#include <string></string></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector><br>using namespace std;</vector></p>
-<p>struct students{<br>    int age;<br>    string name;<br>};</p>
-<p>void addStudents(vector<students> &amp;vec, int age, string name){<br>    students stu;<br>    stu.age = age;<br>    stu.name = name;<br>    vec.push_back(stu);</students></p>
-<p>}</p>
-<p>// 按照年龄进行排序 升序<br>bool sortByAge(const students &amp;s1, const students &amp;s2){<br>    return s1.age &lt; s2.age;<br>}</p>
-<p>// 先按照年龄进行排序 年纪一样 按照姓名排序<br>bool sortByAll(const students &amp;s1, const students &amp;s2){<br>    if(s1.age &lt; s2.age) return true;<br>    else if(s1.age &gt; s2.age) return false;<br>    else return s1.name &lt; s2.name;<br>}<br>int main(){<br>    vector<students> vec;<br>    addStudents(vec, 20, “zhangming”);<br>    addStudents(vec, 20, “xiaoming”);<br>    addStudents(vec, 20, “xiaoming2”);<br>    addStudents(vec, 23, “xiaohong”);<br>    addStudents(vec, 22, “xiaofei”);<br>    addStudents(vec, 27, “xiaogang”);<br>    cout &lt;&lt; “排序前:” &lt;&lt; endl;<br>    for(vector<students>::iterator iter = vec.begin(); iter != vec.end(); ++iter){<br>        cout &lt;&lt; (<em>iter).age &lt;&lt; “ “ &lt;&lt; (</em>iter).name &lt;&lt; endl;<br>    }<br>    sort(vec.begin(), vec.end(), sortByAll);<br>    cout &lt;&lt; “排序后:” &lt;&lt; endl;<br>    for(vector<students>::iterator iter = vec.begin(); iter != vec.end(); ++iter){<br>        cout &lt;&lt; (<em>iter).age &lt;&lt; “ “ &lt;&lt; (</em>iter).name &lt;&lt; endl;<br>    }<br>}</students></students></students></p>
+<p>一：C++<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">实现对自定义的对象类型进行排序(按照其中的元素)，首先将对象存放在vector中，然后利用algorithm库函数中的sort对其进行排序，需要重写排序函数以函数名</div><div class="line">作为函数指针作为sort的第三个参数</div><div class="line">*/</div><div class="line"> </div><div class="line"><span class="comment">#include &lt;iostream&gt;</span></div><div class="line"><span class="comment">#include &lt;string&gt;</span></div><div class="line"><span class="comment">#include &lt;algorithm&gt;</span></div><div class="line"><span class="comment">#include &lt;vector&gt;</span></div><div class="line">using namespace std;</div><div class="line"> </div><div class="line"> </div><div class="line">struct students&#123;</div><div class="line">    int age;</div><div class="line">    string name;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line">void addStudents(vector&lt;students&gt; &amp;vec, int age, string name)&#123;</div><div class="line">    students stu;</div><div class="line">    stu.age = age;</div><div class="line">    stu.name = name;</div><div class="line">    vec.push_back(stu);</div><div class="line">     </div><div class="line">&#125;</div><div class="line"> </div><div class="line">// 按照年龄进行排序 升序</div><div class="line">bool sortByAge(const students &amp;s1, const students &amp;s2)&#123;</div><div class="line">    <span class="built_in">return</span> s1.age &lt; s2.age;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"> </div><div class="line">// 先按照年龄进行排序 年纪一样 按照姓名排序</div><div class="line">bool sortByAll(const students &amp;s1, const students &amp;s2)&#123;</div><div class="line">    <span class="keyword">if</span>(s1.age &lt; s2.age) <span class="built_in">return</span> <span class="literal">true</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s1.age &gt; s2.age) <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">else</span> <span class="built_in">return</span> s1.name &lt; s2.name;</div><div class="line">&#125;</div><div class="line">int <span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">    vector&lt;students&gt; vec;</div><div class="line">    addStudents(vec, 20, <span class="string">"zhangming"</span>);</div><div class="line">    addStudents(vec, 20, <span class="string">"xiaoming"</span>);</div><div class="line">    addStudents(vec, 20, <span class="string">"xiaoming2"</span>);</div><div class="line">    addStudents(vec, 23, <span class="string">"xiaohong"</span>);</div><div class="line">    addStudents(vec, 22, <span class="string">"xiaofei"</span>);</div><div class="line">    addStudents(vec, 27, <span class="string">"xiaogang"</span>);</div><div class="line">    cout &lt;&lt; <span class="string">"排序前:"</span> &lt;&lt; endl;</div><div class="line">    <span class="keyword">for</span>(vector&lt;students&gt;::iterator iter = vec.begin(); iter != vec.end(); ++iter)&#123;</div><div class="line">        cout &lt;&lt; (*iter).age &lt;&lt; <span class="string">" "</span> &lt;&lt; (*iter).name &lt;&lt; endl;</div><div class="line">    &#125;</div><div class="line">    sort(vec.begin(), vec.end(), sortByAll);</div><div class="line">    cout &lt;&lt; <span class="string">"排序后:"</span> &lt;&lt; endl;</div><div class="line">    <span class="keyword">for</span>(vector&lt;students&gt;::iterator iter = vec.begin(); iter != vec.end(); ++iter)&#123;</div><div class="line">        cout &lt;&lt; (*iter).age &lt;&lt; <span class="string">" "</span> &lt;&lt; (*iter).name &lt;&lt; endl;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
