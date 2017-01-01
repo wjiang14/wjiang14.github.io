@@ -307,7 +307,13 @@
 <p><3> 在conf文件没法加载的情况下是没办法reload，或者restart的，所以可以用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo supervisorctl -c /etc/supervisord.conf reload</div></pre></td></tr></table></figure></3></p>
 <p>来reload，这时候会输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Restarted supervisord</div></pre></td></tr></table></figure></p>
 <p>然后查看supervisor运行状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo supervisorctl -c /etc/supervisord.conf status</div><div class="line">output:</div><div class="line">awesome  RUNNING pid 20010, update 0:00:04</div></pre></td></tr></table></figure></p>
-<p>就说明运行了。oh yeah!~</p>
+<p>就说明运行了。oh yeah!~，这时候打开浏览器输入”<a href="http://127.0.0.1:9000&quot;，可以看到看到我们的网站啦。" target="_blank" rel="external">http://127.0.0.1:9000&quot;，可以看到看到我们的网站啦。</a></p>
+<p>再补充几个有用的:<br>Supervisor 有两个主要的组成部分：</p>
+<ol>
+<li>supervisord，运行 Supervisor 时会启动一个进程 supervisord，它负责启动所管理的进程，并将所管理的进程作为自己的子进程来启动，而且可以在所管理的进程出现崩溃时自动重启。</li>
+<li>supervisorctl，是命令行管理工具，可以用来执行 stop、start、restart 等命令，来对这些子进程进行管理。<br>有的时候提示: 启动supervisord失败，提示error: , [Errno 2] No such file or directory: file: /usr/lib/python2.7/socket.py line: 228 找不到socket文件<br>解决方法：重启supervisord的进程，再reload supervisorctl<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ sudo ps ax | grep supervisor   <span class="comment"># 查询supervisord进程，</span></div><div class="line">2516 ?        Ss     1:35 /usr/bin/python /usr/<span class="built_in">local</span>/bin/supervisord   <span class="comment">#记住第一个进程pid</span></div><div class="line">19342 pts/1    S+     0:00 grep --color=auto supervisord                 <span class="comment">#这是grep命令的进程，不用管</span></div><div class="line"><span class="comment"># 如果没有supervisord这个进程，说明并没有启动，继续检查配置文件</span></div><div class="line"></div><div class="line">$ sudo <span class="built_in">kill</span> 2516  <span class="comment"># 杀死这supervisord该死的进程</span></div><div class="line">$ sudo supervisord  <span class="comment"># 启动supervisord</span></div><div class="line">$ sudo supervisorctl reload  <span class="comment"># reload supervisordctl</span></div><div class="line">$ sudo supervisorctl start awesome  <span class="comment"># 启动程序</span></div><div class="line">$ sudo supervisorctl status  <span class="comment"># 查看状态</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
 
           
         
