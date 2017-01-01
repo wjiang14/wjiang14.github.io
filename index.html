@@ -248,6 +248,103 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/01/ubuntu-config/" itemprop="url">
+                  ubuntu config
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T02:06:39-05:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim-tiny"><a href="#自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim-tiny" class="headerlink" title="自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim.tiny"></a>自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim.tiny</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi tab</div></pre></td></tr></table></figure>
+<p>输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install vim-gtk</div></pre></td></tr></table></figure></p>
+<p>安装好之后再输入vi + tab可以看到已经安装了vim，<br>再输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vim /etc/vim/vimrc</div></pre></td></tr></table></figure></p>
+<p>会打开vim配置文件，默认syntax on，说明语法高亮。就可以了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/18/C-中的comparator/" itemprop="url">
                   C++中的comparator
                 </a>
@@ -1324,144 +1421,6 @@ public int binarySearch(int[] A, int target) {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/07/链表总结/" itemprop="url">
-                  链表总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T15:27:08-04:00" content="2016-10-07">
-              2016-10-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考WalkingInTheWind的<a href="http://blog.csdn.net/luckyxiaoqiang/article/details/7393134" target="_blank" rel="external">博客</a></p>
-<h2 id="Let’s-Start-从最简单的开始"><a href="#Let’s-Start-从最简单的开始" class="headerlink" title="Let’s Start //从最简单的开始"></a>Let’s Start //从最简单的开始</h2><h3 id="链表声明"><a href="#链表声明" class="headerlink" title="链表声明"></a>链表声明</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">struct ListNode</div><div class="line">&#123;</div><div class="line">    int val;</div><div class="line">    ListNode* next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">求单链表中结点的个数</div><div class="line">将单链表反转</div><div class="line">查找单链表中的倒数第K个结点（k &gt; 0）</div><div class="line">查找单链表的中间结点</div><div class="line">从尾到头打印单链表</div><div class="line">已知两个单链表pHead1 和pHead2 各自有序，把它们合并成一个链表依然有序</div><div class="line">判断一个单链表中是否有环</div><div class="line">判断两个单链表是否相交</div><div class="line">求两个单链表相交的第一个节点</div><div class="line">已知一个单链表中存在环，求进入环中的第一个节点</div><div class="line">给出一单链表头指针pHead和一节点指针pToBeDeleted，O(1)时间复杂度删除节点pToBeDeleted</div></pre></td></tr></table></figure>
-<h3 id="1-求单链表中结点的个数"><a href="#1-求单链表中结点的个数" class="headerlink" title="1. 求单链表中结点的个数"></a>1. 求单链表中结点的个数</h3><p>遍历整个链表就好, O(n)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">int GetListLen(ListNode* head)</div><div class="line">&#123;</div><div class="line">	int n = 0;</div><div class="line">	<span class="keyword">if</span>(head == NULL)&#123;</div><div class="line">	    <span class="built_in">return</span> 0;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ListNode* p = head;</div><div class="line">    <span class="keyword">while</span>(p != NULL)&#123;</div><div class="line">    	p = p-&gt;next;</div><div class="line">    	n++;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-将单链表反转"><a href="#2-将单链表反转" class="headerlink" title="2. 将单链表反转"></a>2. 将单链表反转</h3><p>方法1<br>用3个指针实现反转，in-place，时间复杂度为O(n), 空间O(1)。<br>定义p, q, r指针，p = head, q = head-&gt;next, r = q-&gt;next;</p>
-<ol>
-<li>p指向null，旧链表的头为新链表的尾；</li>
-<li>q指向p(新链表的尾)</li>
-<li>p = q, q = r; 然后下一轮循环(r=q-&gt;next)，参考代码如下：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ListNode* ReverseList(ListNode* head)</div><div class="line">&#123;</div><div class="line">	// remember always <span class="built_in">test</span> <span class="keyword">if</span> node is NULL;</div><div class="line">	<span class="keyword">if</span>(head == NULL || head-&gt;next == NULL)&#123;</div><div class="line">	    <span class="built_in">return</span> head;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ListNode* p = head;</div><div class="line">    ListNode* q = head-&gt;next;</div><div class="line">    head-&gt;next = NULL;</div><div class="line">    <span class="keyword">while</span>(q)&#123;</div><div class="line">    	ListNode* r = q-&gt;next; //当前节点的下一届点；</div><div class="line">    	q-&gt;next = p; //当前节点指向头(新链表的尾)</div><div class="line">    	p = q; // p向前移动一位，到当前节点</div><div class="line">    	q = r; // q想前移动一位，在一下循环处理下一个节点；</div><div class="line">    &#125;</div><div class="line">    head = p; //循环结束，p == NULL, p指向head，实现反转</div><div class="line">    <span class="built_in">return</span> head;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>方法2<br>从图上观察，方法是：对于一条链表，从第2个节点到第N个节点，依次逐节点插入到第1个节点(head节点)之后，(N-1)次这样的操作结束之后将第1个节点挪到新表的表尾即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">ListNode* ReverseList(ListNode* head)</div><div class="line">&#123;</div><div class="line">	// remember always <span class="built_in">test</span> <span class="keyword">if</span> node is NULL;</div><div class="line">	<span class="keyword">if</span>(head == NULL || head-&gt;next == NULL)&#123;</div><div class="line">	    <span class="built_in">return</span> head;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ListNode* p;</div><div class="line">    ListNode* q;</div><div class="line">    p = head-&gt;next</div><div class="line">    <span class="keyword">while</span>(p-&gt;next != NULL)&#123;</div><div class="line">    	q = p-&gt;next;</div><div class="line">    	p-&gt;next = q-&gt;next;</div><div class="line">    	q-&gt;next = head-&gt;next;</div><div class="line">    	head-&gt;next = p;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    p-&gt;next = head; //like a loop</div><div class="line">    head = p-&gt;next-&gt;next; // new head is old head-&gt;next</div><div class="line">    p-&gt;next-&gt;next = NULL; // <span class="built_in">break</span> the loop</div><div class="line">    <span class="built_in">return</span> head</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="3-查找单链表中的倒数第K个结点（k-gt-0）"><a href="#3-查找单链表中的倒数第K个结点（k-gt-0）" class="headerlink" title="3. 查找单链表中的倒数第K个结点（k &gt; 0）"></a>3. 查找单链表中的倒数第K个结点（k &gt; 0）</h3><p>最普遍的方法是，先统计单链表中结点的个数，然后再找到第（n-k）个结点。注意链表为空，k为0，k为1，k大于链表中节点个数时的情况。时间复杂度为O（n）。也可以用双指针法，一个runner，一个chaser</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">ListNode* getkthNode(ListNode* head)</div><div class="line">&#123;</div><div class="line">	// remember always <span class="built_in">test</span> <span class="keyword">if</span> node is NULL;</div><div class="line">	<span class="keyword">if</span>(head == NULL || k == 0)&#123;</div><div class="line">	    <span class="built_in">return</span> NULL;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ListNode* runner = head;</div><div class="line">    ListNode* chaser = head;</div><div class="line">    </div><div class="line">    <span class="keyword">while</span>(k &gt; 1 &amp;&amp; runner != NULL)&#123;</div><div class="line">    	runner = runner-&gt;next;</div><div class="line">    	k--;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(k &gt; 1 || head == NULL)&#123; //判断节点树是否小于k，我觉着有点多余啊；</div><div class="line">    	<span class="built_in">return</span> NULL;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>(head-&gt;next != NULL)&#123;</div><div class="line">    	chaser = chaser-&gt;next;</div><div class="line">    	runner = runner-&gt;next;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> chaser;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="4-查找单链表的中间结点"><a href="#4-查找单链表的中间结点" class="headerlink" title="4. 查找单链表的中间结点"></a>4. 查找单链表的中间结点</h3><p>依然用双指针法，代码略。</p>
-<h3 id="5-从尾到头打印单链表"><a href="#5-从尾到头打印单链表" class="headerlink" title="5. 从尾到头打印单链表"></a>5. 从尾到头打印单链表</h3><p>用栈来实现，先进后出。要么自己维护栈，要么用递归，注意链表为空的情况，还有base case. 复杂度O(n)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">vector&lt;int&gt; <span class="built_in">print</span>List(ListNode* head)</div><div class="line">&#123;</div><div class="line">	vector&lt;int&gt; result;</div><div class="line">	stack&lt;ListNode*&gt; s;</div><div class="line">	ListNode* node = head;</div><div class="line">	<span class="keyword">while</span>(node != NULL)&#123;</div><div class="line">	    s.push(node);</div><div class="line">	    node = node-&gt;next;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">while</span>(!s.empty())&#123;</div><div class="line">        node = s.top();</div><div class="line">        result.push_back(node-&gt;val);</div><div class="line">        s.pop();</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="6-已知两个单链表pHead1-和pHead2-各自有序，把它们合并成一个链表依然有序"><a href="#6-已知两个单链表pHead1-和pHead2-各自有序，把它们合并成一个链表依然有序" class="headerlink" title="6. 已知两个单链表pHead1 和pHead2 各自有序，把它们合并成一个链表依然有序"></a>6. 已知两个单链表pHead1 和pHead2 各自有序，把它们合并成一个链表依然有序</h3><p>类似于merge sort，用Divide conque，注意两个链表为空，或一个为空的情况。O(max(len1, len2))</p>
-<h3 id="7-判断一个单链表中是否有环"><a href="#7-判断一个单链表中是否有环" class="headerlink" title="7. 判断一个单链表中是否有环"></a>7. 判断一个单链表中是否有环</h3><p>用双指针法，如果相遇则有环，否则无环。如果要找出环的开始点，则相遇后把chaser放回head，两个指针每次走一步，相遇节点为loop起始点。<br>代码略。</p>
-<h3 id="8-如果要遍历链表，可以考虑在head前加一个dummy-node，并且检查边界条件防治数组越界-切记，出现好多次了"><a href="#8-如果要遍历链表，可以考虑在head前加一个dummy-node，并且检查边界条件防治数组越界-切记，出现好多次了" class="headerlink" title="8. 如果要遍历链表，可以考虑在head前加一个dummy node，并且检查边界条件防治数组越界(切记，出现好多次了;(  )"></a>8. 如果要遍历链表，可以考虑在head前加一个dummy node，并且检查边界条件防治数组越界(切记，出现好多次了;(  )</h3><p>比如swap nodes这一题，可以swap(p-&gt;val, p-&gt;next-&gt;val)，注意数组不要越界，也可以考虑在head前面加dummy node.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    ListNode* swapPairs(ListNode* head) &#123;</div><div class="line">        <span class="keyword">if</span>(head == NULL)&#123;</div><div class="line">            <span class="built_in">return</span> head;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        ListNode dummy(0);</div><div class="line">        ListNode* p = &amp;dummy; //指针指向dummy节点；</div><div class="line">        dummy.next = head; //链接dummy和head节点</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(p &amp;&amp; p-&gt;next &amp;&amp; p-&gt;next-&gt;next)&#123;</div><div class="line">            ListNode* swap1 = p-&gt;next;</div><div class="line">            ListNode* swap2 = p-&gt;next-&gt;next;</div><div class="line">            p-&gt;next = swap2;</div><div class="line">            swap1-&gt;next = swap2-&gt;next;</div><div class="line">            swap2-&gt;next = swap1;</div><div class="line">            p = p-&gt;next-&gt;next;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">return</span> dummy.next;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>注意：一个重复周期内涉及的链表先保存下一个变量，不然-&gt;next会timeout limit。并且设定初始条件链表元素数目是(head == NULL)还是(head == NULL || head-&gt;next == NULL)。</p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1507,7 +1466,7 @@ public int binarySearch(int[] A, int target) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1561,7 +1520,7 @@ public int binarySearch(int[] A, int target) {
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
