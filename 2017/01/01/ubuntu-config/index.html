@@ -87,7 +87,8 @@
 <meta name="description" content="自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim.tiny1$ vi tab
 输入命令1$ sudo apt-get install vim-gtk
 安装好之后再输入vi + tab可以看到已经安装了vim，再输入1$ sudo vim /etc/vim/vimrc
-会打开vim配置文件，默认syntax on，说明语法高亮。就可以了">
+会打开vim配置文件，默认syntax on，说明语法高亮。就可以了
+sup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu config">
 <meta property="og:url" content="http://yoursite.com/2017/01/01/ubuntu-config/index.html">
@@ -95,14 +96,16 @@
 <meta property="og:description" content="自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim.tiny1$ vi tab
 输入命令1$ sudo apt-get install vim-gtk
 安装好之后再输入vi + tab可以看到已经安装了vim，再输入1$ sudo vim /etc/vim/vimrc
-会打开vim配置文件，默认syntax on，说明语法高亮。就可以了">
-<meta property="og:updated_time" content="2017-01-01T07:12:35.000Z">
+会打开vim配置文件，默认syntax on，说明语法高亮。就可以了
+sup">
+<meta property="og:updated_time" content="2017-01-01T18:31:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu config">
 <meta name="twitter:description" content="自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim.tiny1$ vi tab
 输入命令1$ sudo apt-get install vim-gtk
 安装好之后再输入vi + tab可以看到已经安装了vim，再输入1$ sudo vim /etc/vim/vimrc
-会打开vim配置文件，默认syntax on，说明语法高亮。就可以了">
+会打开vim配置文件，默认syntax on，说明语法高亮。就可以了
+sup">
 
 
 
@@ -299,6 +302,18 @@
 <p>输入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install vim-gtk</div></pre></td></tr></table></figure></p>
 <p>安装好之后再输入vi + tab可以看到已经安装了vim，<br>再输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vim /etc/vim/vimrc</div></pre></td></tr></table></figure></p>
 <p>会打开vim配置文件，默认syntax on，说明语法高亮。就可以了</p>
+<h2 id="supervisor这个坑终于能填上了"><a href="#supervisor这个坑终于能填上了" class="headerlink" title="supervisor这个坑终于能填上了"></a>supervisor这个坑终于能填上了</h2><p>不知道写这个包的人怎么想的，不同版本之间bug这么多，踩过的坑一定要记下来<br>1 不要用apt-get安装supervisor，apt-get版本是3.0b2版本，可能有bug，官方安装(easy_install和pip)，按照官方说明配置<br>解决方法: 删除老版本，用easy_install安装，现在是3.3.1版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get remove --auto-remove supervisord</div><div class="line">$ sudo easy_install supervisor</div></pre></td></tr></table></figure></p>
+<p>2 安装好之后run echo_supervisord_conf，可以打印一份配置文件sample。<br>修改配置文件，不同安装方法配置文件也在不同的地方!!，官方文档说下面几个路径都会去搜索<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1: <span class="variable">$CWD</span>/supervisord.conf</div><div class="line">2: <span class="variable">$CWD</span>/etc/supervisord.conf</div><div class="line">3: /etc/supervisord.conf</div><div class="line">4: /etc/supervisor/supervisord.conf (since Supervisor 3.3.0)</div><div class="line">5: ../etc/supervisord.conf (Relative to the executable)</div><div class="line">6: ../supervisord.conf (Relative to the executable)</div></pre></td></tr></table></figure></p>
+<p>我们采用3的路径方法，先把sample配置文件导入/etc/supervisord.conf(需要super user权限)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 把官方配置文件例子导入到/etc/supervisord.conf的文件中</span></div><div class="line">$ sudo echo_supervisord_conf &gt; /etc/supervisord.conf</div></pre></td></tr></table></figure></p>
+<p>如果出现permission denied，说明需要super user<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ su -c <span class="string">"echo_supervisord_conf &gt; /etc/supervisord.conf"</span></div></pre></td></tr></table></figure></p>
+<p>然后用vim编辑配置文件，在最后一行添加webapp的设置保存退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ sudo vim supervisord.conf</div><div class="line"></div><div class="line">[program:awesome]</div><div class="line"></div><div class="line"><span class="built_in">command</span>     = python3 /home/wei/srv/awesome/www/app.py</div><div class="line">directory   = /home/wei/srv/awesome/www</div><div class="line">user        = www-data</div><div class="line">startsecs   = 3</div><div class="line"></div><div class="line">redirect_stderr         = <span class="literal">true</span></div><div class="line">stdout_logfile_maxbytes = 50MB</div><div class="line">stdout_logfile_backups  = 10</div><div class="line">stdout_logfile          = /home/wei/srv/awesome/<span class="built_in">log</span>/app.log</div></pre></td></tr></table></figure></p>
+<p>这里有几个坑需要注意</p>
+<p><1> stdout_logfile 路径需要指定绝对路径，command也是一样，否则会出现log file does not exist的报错。</1></p>
+<p><2> 因为supervisor只支持python2.7而不是python3(坑爹啊！！！)，所以在app前面指定python3，如果还不行就指定python3的绝对路径。应该是用python2启动supervisor，然后再守护python3的进程? 这个还不确定，有待后续研究</2></p>
+<p><3> 在conf文件没法加载的情况下是没办法reload，或者restart的，所以可以用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo supervisorctl -c /etc/supervisord.conf reload</div></pre></td></tr></table></figure></3></p>
+<p>来reload，这时候会输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Restarted supervisord</div></pre></td></tr></table></figure></p>
+<p>然后查看supervisor运行状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo supervisorctl -c /etc/supervisord.conf status</div><div class="line">output:</div><div class="line">awesome  RUNNING pid 20010, update 0:00:04</div></pre></td></tr></table></figure></p>
+<p>就说明运行了。oh yeah!~</p>
 
       
     </div>
@@ -444,7 +459,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim-tiny"><span class="nav-number">1.</span> <span class="nav-text">自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim.tiny</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim-tiny"><span class="nav-number">1.</span> <span class="nav-text">自带的vi太难用，先装vim，terminal中输入vi，然后tab键，可以看到系统只安装了vi和vim.tiny</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#supervisor这个坑终于能填上了"><span class="nav-number">2.</span> <span class="nav-text">supervisor这个坑终于能填上了</span></a></li></ol></div>
             
           </div>
         </section>
