@@ -1,0 +1,910 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Python 基础复习不复习老忘
+
+
+
+Character
+Output
+Format
+
+
+
+
+d,
+Integer
+
+
+u
+Unsigned integer
+
+
+f
+Floating point as m.ddddd
+
+
+e
+Floating point as m.ddddde+/-xx
+
+
+E
+Floating point as m.dddddE+/-xx
+
+
+g
+Use %e for exp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_tips">
+<meta property="og:url" content="http://yoursite.com/2017/02/04/python-tips/index.html">
+<meta property="og:site_name" content="Wei Jiang">
+<meta property="og:description" content="Python 基础复习不复习老忘
+
+
+
+Character
+Output
+Format
+
+
+
+
+d,
+Integer
+
+
+u
+Unsigned integer
+
+
+f
+Floating point as m.ddddd
+
+
+e
+Floating point as m.ddddde+/-xx
+
+
+E
+Floating point as m.dddddE+/-xx
+
+
+g
+Use %e for exp">
+<meta property="og:updated_time" content="2017-02-04T19:03:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python_tips">
+<meta name="twitter:description" content="Python 基础复习不复习老忘
+
+
+
+Character
+Output
+Format
+
+
+
+
+d,
+Integer
+
+
+u
+Unsigned integer
+
+
+f
+Floating point as m.ddddd
+
+
+e
+Floating point as m.ddddde+/-xx
+
+
+E
+Floating point as m.dddddE+/-xx
+
+
+g
+Use %e for exp">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/04/python-tips/"/>
+
+  <title> python_tips | Wei Jiang </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wei Jiang</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python_tips
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-04T13:40:12-05:00" content="2017-02-04">
+              2017-02-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python 基础复习<br>不复习老忘</p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th style="text-align:center">Output</th>
+<th style="text-align:right">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d,</td>
+<td style="text-align:center">Integer</td>
+</tr>
+<tr>
+<td>u</td>
+<td style="text-align:center">Unsigned integer</td>
+</tr>
+<tr>
+<td>f</td>
+<td style="text-align:center">Floating point as m.ddddd</td>
+</tr>
+<tr>
+<td>e</td>
+<td style="text-align:center">Floating point as m.ddddde+/-xx</td>
+</tr>
+<tr>
+<td>E</td>
+<td style="text-align:center">Floating point as m.dddddE+/-xx</td>
+</tr>
+<tr>
+<td>g</td>
+<td style="text-align:center">Use %e for exponents less than −4−4 or greater than +5+5, otherwise use %f</td>
+</tr>
+<tr>
+<td>c</td>
+<td style="text-align:center">Single character</td>
+</tr>
+<tr>
+<td>s</td>
+<td style="text-align:center">String, or any Python data object that can be converted to a string by using the str function.</td>
+</tr>
+<tr>
+<td>%</td>
+<td style="text-align:center">Insert a literal % character</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td style="text-align:center">%20d</td>
+<td style="text-align:right">Put the value in a field width of 20</td>
+</tr>
+<tr>
+<td>-</td>
+<td style="text-align:center">%-20d</td>
+<td style="text-align:right">Put the value in a field 20 characters wide, left-justified</td>
+</tr>
+<tr>
+<td>+</td>
+<td style="text-align:center">%+20d</td>
+<td style="text-align:right">Put the value in a field 20 characters wide, right-justified</td>
+</tr>
+<tr>
+<td>0</td>
+<td style="text-align:center">%020d</td>
+<td style="text-align:right">Put the value in a field 20 characters wide, fill in with leading zeros.</td>
+</tr>
+<tr>
+<td>.</td>
+<td style="text-align:center">%20.2f</td>
+<td style="text-align:right">Put the value in a field 20 characters wide with 2 characters to the right of the decimal point.</td>
+</tr>
+<tr>
+<td>(name)    %(name)d</td>
+<td style="text-align:center">Get the value from the supplied dictionary using name as the key.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Built-in-Collection-Data-Types¶"><a href="#Built-in-Collection-Data-Types¶" class="headerlink" title="Built-in Collection Data Types¶"></a>Built-in Collection Data Types¶</h2><p>methods used to build data structures</p>
+<h1 id="list"><a href="#list" class="headerlink" title="list"></a>list</h1><table>
+<thead>
+<tr>
+<th>Method Name</th>
+<th style="text-align:center">Use</th>
+<th style="text-align:right">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>append</td>
+<td style="text-align:center">alist.append(item)</td>
+<td style="text-align:right">Adds a new item to the end of a list</td>
+</tr>
+<tr>
+<td>insert</td>
+<td style="text-align:center">alist.insert(i,item)</td>
+<td style="text-align:right">Inserts an item at the ith position in a list</td>
+</tr>
+<tr>
+<td>pop</td>
+<td style="text-align:center">alist.pop()</td>
+<td style="text-align:right">Removes and returns the last item in a list</td>
+</tr>
+<tr>
+<td>pop</td>
+<td style="text-align:center">alist.pop(i)</td>
+<td style="text-align:right">Removes and returns the ith item in a list</td>
+</tr>
+<tr>
+<td>sort</td>
+<td style="text-align:center">alist.sort()</td>
+<td style="text-align:right">Modifies a list to be sorted</td>
+</tr>
+<tr>
+<td>reverse</td>
+<td style="text-align:center">alist.reverse()</td>
+<td style="text-align:right">Modifies a list to be in reverse order</td>
+</tr>
+<tr>
+<td>del</td>
+<td style="text-align:center">del alist[i]</td>
+<td style="text-align:right">Deletes the item in the ith position</td>
+</tr>
+<tr>
+<td>index</td>
+<td style="text-align:center">alist.index(item)</td>
+<td style="text-align:right">Returns the index of the first occurrence of item</td>
+</tr>
+<tr>
+<td>count</td>
+<td style="text-align:center">alist.count(item)</td>
+<td style="text-align:right">Returns the number of occurrences of item</td>
+</tr>
+<tr>
+<td>remove</td>
+<td style="text-align:center">alist.remove(item)</td>
+<td style="text-align:right">Removes the first occurrence of item</td>
+</tr>
+</tbody>
+</table>
+<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><table>
+<thead>
+<tr>
+<th>Method Name</th>
+<th style="text-align:center">Use</th>
+<th style="text-align:right">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>center</td>
+<td style="text-align:center">astring.center(w)</td>
+<td style="text-align:right">Returns a string centered in a field of size w</td>
+</tr>
+<tr>
+<td>count</td>
+<td style="text-align:center">astring.count(item)</td>
+<td style="text-align:right">Returns the number of occurrences of item in the string</td>
+</tr>
+<tr>
+<td>ljust</td>
+<td style="text-align:center">astring.ljust(w)</td>
+<td style="text-align:right">Returns a string left-justified in a field of size w</td>
+</tr>
+<tr>
+<td>lower</td>
+<td style="text-align:center">astring.lower()</td>
+<td style="text-align:right">Returns a string in all lowercase</td>
+</tr>
+<tr>
+<td>rjust</td>
+<td style="text-align:center">astring.rjust(w)</td>
+<td style="text-align:right">Returns a string right-justified in a field of size w</td>
+</tr>
+<tr>
+<td>find</td>
+<td style="text-align:center">astring.find(item)</td>
+<td style="text-align:right">Returns the index of the first occurrence of item</td>
+</tr>
+<tr>
+<td>split</td>
+<td style="text-align:center">astring.split(schar)</td>
+<td style="text-align:right">Splits a string into substrings at schar</td>
+</tr>
+</tbody>
+</table>
+<h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><table>
+<thead>
+<tr>
+<th>Method Name</th>
+<th style="text-align:center">Use</th>
+<th style="text-align:right">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>union</td>
+<td style="text-align:center">aset.union(otherset)</td>
+<td style="text-align:right">Returns a new set with all elements from both sets</td>
+</tr>
+<tr>
+<td>intersection</td>
+<td style="text-align:center">aset.intersection(otherset)</td>
+<td style="text-align:right">Returns a new set with only those elements common to both sets</td>
+</tr>
+<tr>
+<td>difference</td>
+<td style="text-align:center">aset.difference(otherset)</td>
+<td style="text-align:right">Returns a new set with all items from first set not in second</td>
+</tr>
+<tr>
+<td>issubset</td>
+<td style="text-align:center">aset.issubset(otherset)</td>
+<td style="text-align:right">Asks whether all elements of one set are in the other</td>
+</tr>
+<tr>
+<td>add</td>
+<td style="text-align:center">aset.add(item)</td>
+<td style="text-align:right">Adds item to the set</td>
+</tr>
+<tr>
+<td>remove</td>
+<td style="text-align:center">aset.remove(item)</td>
+<td style="text-align:right">Removes item from the set</td>
+</tr>
+<tr>
+<td>pop</td>
+<td style="text-align:center">aset.pop()</td>
+<td style="text-align:right">Removes an arbitrary element from the set</td>
+</tr>
+<tr>
+<td>clear</td>
+<td style="text-align:center">aset.clear()</td>
+<td style="text-align:right">Removes all elements from the set</td>
+</tr>
+</tbody>
+</table>
+<h1 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h1><p>Method Name    Use    Explanation<br>keys    adict.keys()    Returns the keys of the dictionary in a dict_keys object<br>values    adict.values()    Returns the values of the dictionary in a dict_values object<br>items    adict.items()    Returns the key-value pairs in a dict_items object<br>get    adict.get(k)    Returns the value associated with k, None otherwise<br>get    adict.get(k,alt)    Returns the value associated with k, alt otherwise</p>
+<p>Operator    Use    Explanation<br>[]    myDict[k]    Returns the value associated with k, otherwise its an error<br>in    key in adict    Returns True if key is in the dictionary, False otherwise<br>del    del adict[key]    Removes the entry from the dictionary</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/01/ubuntu-config/" rel="next" title="ubuntu config">
+                <i class="fa fa-chevron-left"></i> ubuntu config
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Wei" />
+          <p class="site-author-name" itemprop="name">Wei</p>
+          <p class="site-description motion-element" itemprop="description">update some solutions of Leetcode</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Built-in-Collection-Data-Types¶"><span class="nav-number">1.</span> <span class="nav-text">Built-in Collection Data Types¶</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#list"><span class="nav-number"></span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-number"></span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set"><span class="nav-number"></span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dictionary"><span class="nav-number"></span> <span class="nav-text">dictionary</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wei</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
