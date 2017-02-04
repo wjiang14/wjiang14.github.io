@@ -89,7 +89,6 @@
 
 
 Character
-Output
 Format
 
 
@@ -116,7 +115,7 @@ Floating point as m.dddddE+/-xx
 
 
 g
-Use %e for exp">
+Use %e for exponents">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python_tips">
 <meta property="og:url" content="http://yoursite.com/2017/02/04/python-tips/index.html">
@@ -126,7 +125,6 @@ Use %e for exp">
 
 
 Character
-Output
 Format
 
 
@@ -153,8 +151,8 @@ Floating point as m.dddddE+/-xx
 
 
 g
-Use %e for exp">
-<meta property="og:updated_time" content="2017-02-04T19:03:19.000Z">
+Use %e for exponents">
+<meta property="og:updated_time" content="2017-02-04T19:12:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python_tips">
 <meta name="twitter:description" content="Python 基础复习不复习老忘
@@ -162,7 +160,6 @@ Use %e for exp">
 
 
 Character
-Output
 Format
 
 
@@ -189,7 +186,7 @@ Floating point as m.dddddE+/-xx
 
 
 g
-Use %e for exp">
+Use %e for exponents">
 
 
 
@@ -387,8 +384,7 @@ Use %e for exp">
 <thead>
 <tr>
 <th>Character</th>
-<th style="text-align:center">Output</th>
-<th style="text-align:right">Format</th>
+<th style="text-align:center">Format</th>
 </tr>
 </thead>
 <tbody>
@@ -458,15 +454,6 @@ Use %e for exp">
 <td>0</td>
 <td style="text-align:center">%020d</td>
 <td style="text-align:right">Put the value in a field 20 characters wide, fill in with leading zeros.</td>
-</tr>
-<tr>
-<td>.</td>
-<td style="text-align:center">%20.2f</td>
-<td style="text-align:right">Put the value in a field 20 characters wide with 2 characters to the right of the decimal point.</td>
-</tr>
-<tr>
-<td>(name)    %(name)d</td>
-<td style="text-align:center">Get the value from the supplied dictionary using name as the key.</td>
 </tr>
 </tbody>
 </table>
@@ -629,8 +616,66 @@ Use %e for exp">
 </tr>
 </tbody>
 </table>
-<h1 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h1><p>Method Name    Use    Explanation<br>keys    adict.keys()    Returns the keys of the dictionary in a dict_keys object<br>values    adict.values()    Returns the values of the dictionary in a dict_values object<br>items    adict.items()    Returns the key-value pairs in a dict_items object<br>get    adict.get(k)    Returns the value associated with k, None otherwise<br>get    adict.get(k,alt)    Returns the value associated with k, alt otherwise</p>
-<p>Operator    Use    Explanation<br>[]    myDict[k]    Returns the value associated with k, otherwise its an error<br>in    key in adict    Returns True if key is in the dictionary, False otherwise<br>del    del adict[key]    Removes the entry from the dictionary</p>
+<h1 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h1><table>
+<thead>
+<tr>
+<th>Method Name</th>
+<th style="text-align:center">Use</th>
+<th style="text-align:right">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>keys</td>
+<td style="text-align:center">adict.keys()</td>
+<td style="text-align:right">Returns the keys of the dictionary in a dict_keys object</td>
+</tr>
+<tr>
+<td>values</td>
+<td style="text-align:center">adict.values()</td>
+<td style="text-align:right">Returns the values of the dictionary in a dict_values object</td>
+</tr>
+<tr>
+<td>items</td>
+<td style="text-align:center">adict.items()</td>
+<td style="text-align:right">Returns the key-value pairs in a dict_items object</td>
+</tr>
+<tr>
+<td>get</td>
+<td style="text-align:center">adict.get(k)</td>
+<td style="text-align:right">Returns the value associated with k, None otherwise</td>
+</tr>
+<tr>
+<td>get</td>
+<td style="text-align:center">adict.get(k,alt)</td>
+<td style="text-align:right">Returns the value associated with k, alt otherwise</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Operator    Use    Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[]</td>
+<td style="text-align:center">myDict[k]</td>
+<td style="text-align:right">Returns the value associated with k, otherwise its an error</td>
+</tr>
+<tr>
+<td>in</td>
+<td style="text-align:center">key in adict</td>
+<td style="text-align:right">Returns True if key is in the dictionary, False otherwise</td>
+</tr>
+<tr>
+<td>del</td>
+<td style="text-align:center">del adict[key]</td>
+<td style="text-align:right">Removes the entry from the dictionary</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
