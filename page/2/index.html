@@ -248,6 +248,261 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/13/backtracking-md/" itemprop="url">
+                  backtracking.md
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T17:14:14-04:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/big-data/" itemprop="url" rel="index">
+                    <span itemprop="name">big_data</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Combinations // 可以sort也可以不sort</div><div class="line">Combination Sum //sum类问题，因为有target == sum要求，dfs之前最好sort一遍，这样更大的元素就不用考虑，方便剪枝</div><div class="line">Permutations</div><div class="line">Permutations II</div></pre></td></tr></table></figure>
+<h3 id="Combination"><a href="#Combination" class="headerlink" title="Combination"></a>Combination</h3><p>Given two integers n and k, return all possible combinations of k numbers out of 1 … n.</p>
+<p>For example,<br>If n = 4 and k = 2, a solution is:</p>
+<p>[<br>  [2,4],<br>  [3,4],<br>  [2,3],<br>  [1,2],<br>  [1,3],<br>  [1,4],<br>]</p>
+<p>利用back tracking枚举可能情况，边界条件为path.size() == k，满足条件就把path vector放到result vector中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; combine(int n, int k) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; result;</div><div class="line">        vector&lt;int&gt; path;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(n &lt;= 0)&#123;</div><div class="line">            <span class="built_in">return</span> result;</div><div class="line">        &#125;</div><div class="line">        trackback(result, path, n, k, 1);</div><div class="line">        </div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void trackback(vector&lt;vector&lt;int&gt;&gt;&amp; result, vector&lt;int&gt; path, int n, int k, int level)&#123;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(path.size() == k)&#123;</div><div class="line">            result.push_back(path);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(path.size() &gt; k)&#123;</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = level; i &lt;= n; i++)&#123;</div><div class="line">            path.push_back(i);</div><div class="line">            trackback(result, path, n, k, i + 1); //此处为i + 1，因为不涉及到返回处理，可以不用判定是否访问过，设置为i + 1即可</div><div class="line">            path.pop_back();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="Combination-Sum"><a href="#Combination-Sum" class="headerlink" title="Combination Sum"></a>Combination Sum</h3><p>边界条件为 target == 0，每次路径更新target -= nums[i]，<br>Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p>
+<p>The same repeated number may be chosen from C unlimited number of times.</p>
+<p>Note:<br>All numbers (including target) will be positive integers.<br>The solution set must not contain duplicate combinations.<br>For example, given candidate set [2, 3, 6, 7] and target 7,<br>A solution set is:<br>[<br>  [7],<br>  [2, 2, 3]<br>]<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; combinationSum(vector&lt;int&gt;&amp; candidates, int target) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; ret;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(candidates.size() == 0 || target &lt; 0)&#123;</div><div class="line">            <span class="built_in">return</span> ret;</div><div class="line">        &#125;</div><div class="line">        vector&lt;int&gt; curr;</div><div class="line">        </div><div class="line">        backtracking(ret, curr, candidates, target, 0);</div><div class="line">        <span class="built_in">return</span> ret;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void backtracking(vector&lt;vector&lt;int&gt;&gt;&amp; ret, vector&lt;int&gt; curr, vector&lt;int&gt; candidates, int target, int level)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(target == 0)&#123;</div><div class="line">            ret.push_back(curr);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(target &lt; 0)&#123;</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = level; i &lt; candidates.size(); ++i)&#123;</div><div class="line">            target -= candidates[i];</div><div class="line">            curr.push_back(candidates[i]);</div><div class="line">            backtracking(ret, curr, candidates, target, i); //此处为i，只枚举i后面的数，防止有重复元素；</div><div class="line">            curr.pop_back();</div><div class="line">            target += candidates[i]; //释放targe值</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="Permutations"><a href="#Permutations" class="headerlink" title="Permutations"></a>Permutations</h3><p>Given a collection of distinct numbers, return all possible permutations.</p>
+<p>For example,<br>[1,2,3] have the following permutations:<br>[<br>  [1,2,3],<br>  [1,3,2],<br>  [2,1,3],<br>  [2,3,1],<br>  [3,1,2],<br>  [3,2,1]<br>]</p>
+<p>可以用同样的模版，但是permutation一定要有判定是否访问过了.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; permute(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;int&gt; path;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; result;</div><div class="line">        bool visit[nums.size()] = &#123;<span class="literal">false</span>&#125;;</div><div class="line">        </div><div class="line">        dfs(result, path, nums, visit);</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; result, vector&lt;int&gt; path, vector&lt;int&gt; nums, bool visit[])</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(path.size() == nums.size())&#123;</div><div class="line">            result.push_back(path);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = 0; i &lt; nums.size(); i++)&#123;</div><div class="line">            <span class="keyword">if</span>(visit[i] == <span class="literal">false</span>)&#123;</div><div class="line">                visit[i] = <span class="literal">true</span>;</div><div class="line">                path.push_back(nums[i]);</div><div class="line">                dfs(result, path, nums, visit);  //循环，但是访问过的元素不放入数组中</div><div class="line">                visit[i] = <span class="literal">false</span>; // 释放判定</div><div class="line">                path.pop_back();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="Permutations-II"><a href="#Permutations-II" class="headerlink" title="Permutations II"></a>Permutations II</h3><p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>
+<p>For example,<br>[1,1,2] have the following unique permutations:<br>[<br>  [1,1,2],<br>  [1,2,1],<br>  [2,1,1]<br>]<br>于上一题一样，除了是否访问过的判定，还要加上是否重复的判定 visit[i - 1] == false &amp;&amp; i != 0 &amp;&amp; nums[i] == nums[i - 1]<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    </div><div class="line">    vector&lt;vector&lt;int&gt;&gt; permuteUnique(vector&lt;int&gt;&amp; num) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; result;</div><div class="line">        <span class="keyword">if</span>(num.size() == 0)&#123;</div><div class="line">            <span class="built_in">return</span> result;</div><div class="line">        &#125;</div><div class="line">        vector&lt;int&gt; path;</div><div class="line">        vector&lt;bool&gt; visited(num.size(), <span class="literal">false</span>);</div><div class="line">        </div><div class="line">        sort(num.begin(), num.end());</div><div class="line">        dfs(result, path, num, visited);</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; result, vector&lt;int&gt; path, vector&lt;int&gt; num, vector&lt;bool&gt; visited)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(path.size() == num.size())&#123;</div><div class="line">            result.push_back(path);</div><div class="line">            <span class="built_in">return</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = 0; i &lt; num.size(); i++)&#123;</div><div class="line">            <span class="keyword">if</span>(visited[i] == <span class="literal">false</span>)&#123;</div><div class="line">                <span class="keyword">if</span>(i != 0 &amp;&amp; visited[i - 1] == <span class="literal">false</span> &amp;&amp; num[i] == num[i - 1])&#123; //判定一定要考虑[i - 1]项，i != 0 在前</div><div class="line">                    <span class="built_in">continue</span>;</div><div class="line">                &#125;</div><div class="line">                visited[i] = <span class="literal">true</span>;</div><div class="line">                path.push_back(num[i]);</div><div class="line">                dfs(result, path, num, visited);</div><div class="line">                visited[i] = <span class="literal">false</span>;</div><div class="line">                path.pop_back();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/11/dynamic-programming例题/" itemprop="url">
+                  dynamic programming例题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-11T13:53:01-04:00" content="2016-10-11">
+              2016-10-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/big-data/" itemprop="url" rel="index">
+                    <span itemprop="name">big_data</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Best Time to Buy and Sell Stock</div><div class="line">Best Time to Buy and Sell Stock II</div><div class="line">Longest Increasing Subsequence</div></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/wuyuegb2312/p/3281264.html" target="_blank" rel="external">http://www.cnblogs.com/wuyuegb2312/p/3281264.html</a></p>
+<h3 id="1-Best-Time-to-Buy-and-Sell-Stock"><a href="#1-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="1. Best Time to Buy and Sell Stock"></a>1. Best Time to Buy and Sell Stock</h3><p>Say you have an array for which the ith element is the price of a given stock on day i.<br>If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<p>假设 f[i] 为到第 i 天为止可以拿到的最大利润。对于第 i 天，有两种选择，即在当天卖掉股票，或者在第 i 天之前已经卖掉了。那么 f[i] 就是这两种选择中的最大值。如果在第 i 天卖掉股票，那么问题就是在哪天买股票，只要维护一个到第 i 天为止股价的最小值 minPrice 就可以了，此时 f[i] = prices[i] - minPrice ；如果在第 i 天股票已经卖出，则 f[i] = f[i-1]  (类似于背包问题，两种选择，卖还是不卖)。综上所述，令 f[i] 表示到第 i 天为止可以拿到的最大利润。状态转移方程为 f[i] = max(f[i-1], prices[i] - minPrice) ，其中 minPrice 表示到第 i 天为止的最低股价，并且有 minPrice = min(minPrice, prices[i]) 。边界条件为 f[0] = 0, minPrice = prices[0] 。最终结果为 f[n-1] 。时间复杂度与空间复杂度均为 O(n) 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</div><div class="line">        <span class="keyword">if</span>(prices.size() &lt;= 1)&#123;</div><div class="line">            <span class="built_in">return</span> 0;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        int minP = prices[0];</div><div class="line">        int profit = prices[1] - prices[0];</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i = 2; i &lt; prices.size(); i++)&#123;</div><div class="line">            minP = min(prices[i - 1], minP);</div><div class="line">            profit = max(profit, prices[i] - minP);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(profit &lt; 0)&#123;</div><div class="line">            <span class="built_in">return</span> 0;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="built_in">return</span> profit;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="2-Best-Time-to-Buy-and-Sell-Stock-II"><a href="#2-Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="2. Best Time to Buy and Sell Stock II"></a>2. Best Time to Buy and Sell Stock II</h3><p>Say you have an array for which the ith element is the price of a given stock on day i.<br>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+<p>由于可以无限次买卖，上次的状态模型显然不能用了。考虑第 i 天的行为可以是买入、卖出，或什么都不做。如果要买入，显然至少在第 i-1 天的时候手中是没有持有股票的，而如果要卖出，则至少在第 i-1 天的时候手中必须持有股票，如果什么都不做，则没有限制。根据这样的分析，我们可以知道为了计算第 i 天的情况，我们（只）需要第 i-1 天时持有和未持有股票的情况。据此可以抽象出状态。令 hold[i] 表示第 i 天时持有股票可以获得的最大利润， free[i] 表示第 i 天时未持有股票能获得的最大利润。第 i 天持有股票有两种情况，即第 i-1 天就已经持有，或在第 i 天买入。即 hold[i] = max(hold[i-1], free[i-1] - prices[i]) 。同理第 i 天未持有股票也有对应两种情况，即第 i-1 天未持有，或第 i 天卖出。即 free[i] = max(free[i-1], hold[i-1] + prices[i]) 。初始条件为 hold[0] = -prices[0], free[0] = 0 。最终结果为 free[n-1] 。时间复杂度和空间复杂度均为 O(n) 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</div><div class="line">        //本题也可以做是最大m 子段和</div><div class="line">        int sum = 0;</div><div class="line">        <span class="keyword">for</span>(int i = 1; i &lt; prices.size(); i++)&#123;</div><div class="line">            int diff = prices[i] - prices[i - 1];</div><div class="line">            <span class="keyword">if</span>(diff &gt; 0)&#123;</div><div class="line">                sum += diff;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">return</span> sum;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="3-Longest-Increasing-Subsequence"><a href="#3-Longest-Increasing-Subsequence" class="headerlink" title="3. Longest Increasing Subsequence"></a>3. Longest Increasing Subsequence</h3><p>Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
+<p>For example,<br>Given [10, 9, 2, 5, 3, 7, 101, 18],<br>The longest increasing subsequence is [2, 3, 7, 101], therefore the length is 4. Note that there may be more than one LIS combination, it is only necessary for you to return the length.</p>
+<p>Your algorithm should run in O(n2) complexity.</p>
+<p>Follow up: Could you improve it to O(n log n) time complexity?<br>最长单调递增自序列，有nlog(n)算法，思考过程类似于背包问题，此题中背包不必装满，但是比i(背包容量)小的数j(宝石)，判断max(dp[j]+1, dp[i])，dp[]为子序列个数，相当于背包问题中宝石价值。但是背包问题中，背包捡起一次宝石，背包容量会减小，所以在状态转移方程为max(dp[i - vj(重量)] + 价值，dp[i])，而这个问题不存在背包容量问题，只需要判断j比i小就行了。除此之外还要排出i左边的坑，比如nums[10, 9, 2, 5, 3, 7, 101, 18]中nums[4] = 7，比7小的有[2, 5, 3]，但是子序列要把3这个坑去掉，所以才用max(dp[j] + 1)，解释一下比如i取7的位置，j取3的位置，此时dp[i] = 2，因为有2和5，但是dp[j] ＝ 1，只有2比3小，这时候就跳过3这个数。因为dp[i]是i左边小于nums[i]，并且递增的总和，如果前面有个坑，这个总数会比坑左面的数值小。因此取max(dp[j] + 1)。这个方法经常用，要记住。一般复杂度为O(n^2)。</p>
+<p>再说nlog(n)解法，考虑两个数a[x]和a[y]，x&lt;y且a[x]&lt;a[y],且dp[x]=dp[y]，当a[t]要选择时，到底取哪一个构成最优的呢？显然选取a[x]更有潜力，因为可能存在a[x]&lt;a[z]&lt;a[y]，这样a[t]可以获得更优的值。在这里给我们一个启示，当dp[t]一样时，尽量选择更小的a[x].按dp[t]=k来分类，只需保留dp[t]=k的所有a[t]中的最小值，设d[k]记录这个值，d[k]=min{a[t],dp[t]=k}。<br>这时注意到d的两个特点（重要）：</p>
+<ol>
+<li>d[k]在计算过程中单调不升；           </li>
+<li>d数组是有序的，d[1]&lt;d[2]&lt;..d[n]。<br> 利用这两个性质，可以很方便的求解：</li>
+<li>设当前已求出的最长上升子序列的长度为len（初始时为1），每次读入一个新元素x：</li>
+<li>若x&gt;d[len]，则直接加入到d的末尾，且len++；（利用性质2）<br>否则，在d中二分查找，找到第一个比x小的数d[k]，并d[k+1]=x，在这里x&lt;=d[k+1]一定成立（性质1,2）。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">O(n^2)</div><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int lengthOfLIS(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        int n=nums.size();</div><div class="line">        <span class="keyword">if</span>(!n) <span class="built_in">return</span> 0;</div><div class="line">        int result=1;</div><div class="line">        vector&lt;int&gt; dp(n,1);</div><div class="line">        </div><div class="line">        <span class="keyword">for</span>(int i=1;i&lt;n;i++)&#123;</div><div class="line">            int temp=0;</div><div class="line">            <span class="keyword">for</span>(int j=0;j&lt;i;j++)&#123;</div><div class="line">                <span class="keyword">if</span>(nums[j]&lt;nums[i]) temp=max(temp,dp[j]);</div><div class="line">            &#125;</div><div class="line">            dp[i]=temp+1;</div><div class="line">            result=max(dp[i],result);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">// C++ implementation to find longest increasing subsequence</div><div class="line">// <span class="keyword">in</span> O(n Log n) time.</div><div class="line"><span class="comment">#include &lt;bits/stdc++.h&gt;</span></div><div class="line">using namespace std;</div><div class="line"> </div><div class="line">// Binary search</div><div class="line">int GetCeilIndex(int arr[], vector&lt;int&gt; &amp;T, int l, int r,</div><div class="line">                 int key)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">while</span> (r - l &gt; 1)</div><div class="line">    &#123;</div><div class="line">        int m = l + (r - l)/2;</div><div class="line">        <span class="keyword">if</span> (arr[T[m]] &gt;= key)</div><div class="line">            r = m;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            l = m;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="built_in">return</span> r;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">int LongestIncreasingSubsequence(int arr[], int n)</div><div class="line">&#123;</div><div class="line">    // Add boundary <span class="keyword">case</span>, when array n is zero</div><div class="line">    // Depend on smart pointers</div><div class="line"> </div><div class="line">    vector&lt;int&gt; tailIndices(n, 0); // Initialized with 0 </div><div class="line">    vector&lt;int&gt; prevIndices(n, -1); // initialized with -1</div><div class="line"> </div><div class="line">    int len = 1; // it will always point to empty location</div><div class="line">    <span class="keyword">for</span> (int i = 1; i &lt; n; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (arr[i] &lt; arr[tailIndices[0]])</div><div class="line">        &#123;</div><div class="line">            // new smallest value</div><div class="line">            tailIndices[0] = i;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (arr[i] &gt; arr[tailIndices[len-1]])</div><div class="line">        &#123;</div><div class="line">            // arr[i] wants to extend largest subsequence</div><div class="line">            prevIndices[i] = tailIndices[len-1];</div><div class="line">            tailIndices[len++] = i;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            // arr[i] wants to be a potential condidate of</div><div class="line">            // future subsequence</div><div class="line">            // It will replace ceil value <span class="keyword">in</span> tailIndices</div><div class="line">            int pos = GetCeilIndex(arr, tailIndices, -1,</div><div class="line">                                   len-1, arr[i]);</div><div class="line"> </div><div class="line">            prevIndices[i] = tailIndices[pos-1];</div><div class="line">            tailIndices[pos] = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    cout &lt;&lt; <span class="string">"LIS of given input"</span> &lt;&lt; endl;</div><div class="line">    <span class="keyword">for</span> (int i = tailIndices[len-1]; i &gt;= 0; i = prevIndices[i])</div><div class="line">        cout &lt;&lt; arr[i] &lt;&lt; <span class="string">" "</span>;</div><div class="line">    cout &lt;&lt; endl;</div><div class="line"> </div><div class="line">    <span class="built_in">return</span> len;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">int <span class="function"><span class="title">main</span></span>()</div><div class="line">&#123;</div><div class="line">    int arr[] = &#123; 2, 5, 3, 7, 11, 8, 10, 13, 6 &#125;;</div><div class="line">    int n = sizeof(arr)/sizeof(arr[0]);</div><div class="line"> </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"LIS size %d\n"</span>, LongestIncreasingSubsequence(arr, n));</div><div class="line"> </div><div class="line">    <span class="built_in">return</span> 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/09/string题目-md/" itemprop="url">
                   string题目
                 </a>
@@ -703,7 +958,7 @@ public int binarySearch(int[] A, int target) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -711,7 +966,7 @@ public int binarySearch(int[] A, int target) {
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -720,7 +975,7 @@ public int binarySearch(int[] A, int target) {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
